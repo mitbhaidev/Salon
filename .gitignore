@@ -25,6 +25,7 @@ Thumbs.db
 *.pyc
 
 /media/
+static/css/output.css
 
 # Migrations
 **/migrations/*.py
