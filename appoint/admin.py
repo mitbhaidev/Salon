@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Appointment, Service
+from .models import Appointment, Service,Contact
 
 # Register your models here.
 admin.site.register(Service)
@@ -15,3 +15,10 @@ class AppointmentAdmin(admin.ModelAdmin):
 
     # Remove original time from form fields
     fields = ('name', 'phone', 'service', 'date', 'formatted_time', 'email')
+
+
+@admin.register(Contact)
+class ContactAdmin(admin.ModelAdmin):
+    list_display = ('name', 'email', 'phone', 'created_at')
+    search_fields = ('name', 'email', 'phone')
+    list_filter = ('created_at',)

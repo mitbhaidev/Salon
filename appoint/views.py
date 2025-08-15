@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Appointment, Service
+from .models import Appointment, Service,Contact
 from django.core.mail import send_mail
 from django.utils import timezone
 from datetime import datetime
@@ -104,8 +104,16 @@ def contact(request):
         if not name or not email or not message:
             error = "Please fill in all required fields."
         else:
+            # Save to DB
+            Contact.objects.create(
+                name=name,
+                email=email,
+                phone=phone,
+                message=message
+            )
+
+            # Send email
             try:
-                # Email to customer
                 send_mail(
                     subject="We Received Your Message",
                     message=f"Hi {name},\n\nThank you for contacting us. We received your message:\n\n\"{message}\"\n\nWe will get back to you shortly.",
