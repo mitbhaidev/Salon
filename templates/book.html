@@ -1,0 +1,151 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+       Book an Appointment | salon
+{% endblock %}
+
+{% block content %}
+<div class="min-h-screen bg-gray-50 flex items-center justify-center md:py-12  py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-6xl w-full bg-white shadow-lg rounded-xl overflow-hidden flex flex-col md:flex-row">
+        
+        <!-- Left Side: Form -->
+        <div class="md:w-1/2 p-8 lg:p-12">
+            <h1 class="text-3xl font-bold text-gray-800 mb-6 text-center md:text-left">Book Appointment</h1>
+
+            {% if error %}
+            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6" role="alert">
+                <span class="block sm:inline">{{ error }}</span>
+            </div>
+            {% endif %}
+
+            <form method="post" class="space-y-5">
+                {% csrf_token %}
+
+                <!-- Name -->
+                <div>
+                    <label for="id_name" class="block text-sm font-medium text-gray-700">Full Name</label>
+                    <input type="text" name="name" id="id_name"
+                           class="mt-1 w-full border-2 border-gray-200 rounded-lg  sm:text-sm px-3 py-2"
+                           placeholder="Siya Shah" required>
+                </div>
+
+                <!-- Email -->
+                <div>
+                    <label for="id_email" class="block text-sm font-medium text-gray-700">Email</label>
+                    <input type="email" name="email" id="id_email"
+                           class="mt-1 w-full border-2 border-gray-200 rounded-lg sm:text-sm px-3 py-2"
+                           placeholder="siya@example.com" required>
+                </div>
+
+                <!-- Phone -->
+                <div>
+                    <label for="id_phone" class="block text-sm font-medium text-gray-700">Phone</label>
+                    <input type="tel" name="phone" id="id_phone" pattern="[0-9]{10,15}" maxlength="10" minlength="10" 
+                           oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                           class="mt-1 w-full border-2 border-gray-200 rounded-lg sm:text-sm px-3 py-2"
+                           placeholder="98765 43210" required>
+                </div>
+
+                <!-- Service -->
+                <div>
+                    <label for="id_service" class="block text-sm font-medium text-gray-700">Service</label>
+                    <select name="service" id="id_service"
+                            class="mt-1 w-full border-2 border-gray-200 rounded-lg sm:text-sm px-3 py-2"
+                            required>
+                        <option value="" disabled selected>Select a service</option>
+                        {% for service in services %}
+                        <option value="{{ service.id }}">{{ service.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <!-- Date -->
+                <div>
+                    <label for="id_date" class="block text-sm font-medium text-gray-700">Date</label>
+                    <input type="date" name="date" id="id_date"
+                           class="mt-1 w-full border-2 border-gray-200 rounded-lg sm:text-sm px-3 py-2"
+                           required>
+                </div>
+
+                <!-- Time -->
+                <div>
+                    <label for="id_time" class="block text-sm font-medium text-gray-700">Time</label>
+                    <select name="time" id="id_time"
+                            class="mt-1 w-full border-2 border-gray-200 rounded-lg sm:text-sm px-3 py-2"
+                            required>
+                        <option value="" disabled selected>Select a time</option>
+                    </select>
+                </div>
+
+                <!-- Submit -->
+                <button type="submit"
+                        class="w-full hover:bg-yellow-400 hover:text-white text-white py-3 px-4 rounded-lg shadow bg-black transition font-semibold text-lg">
+                    Book Now
+                </button>
+            </form>
+        </div>
+
+        <!-- Right Side: Image -->
+        <div class="md:w-1/2 hidden md:block">
+            <img src="{% static 'images/bookappoint.webp' %}" alt="Appointment Image" class="w-full h-full object-cover">
+        </div>
+    </div>
+</div>
+
+<!-- Script for Date & Time -->
+<script>
+    const dateInput = document.getElementById("id_date");
+    const timeSelect = document.getElementById("id_time");
+
+    const todayObj = new Date();
+    const todayDate = todayObj.toISOString().split("T")[0];
+    dateInput.min = todayDate;
+
+    function format12Hour(hour, minutes) {
+        let ampm = hour >= 12 ? "PM" : "AM";
+        let displayHour = hour % 12 || 12;
+        let displayMinutes = String(minutes).padStart(2, '0');
+        return `${displayHour}:${displayMinutes} ${ampm}`;
+    }
+
+    function generateTimeSlots(selectedDate) {
+        timeSelect.innerHTML = '<option value="" disabled selected>Select a time</option>';
+        const startHour = 9;
+        const endHour = 20;
+        const stepMinutes = 60;
+
+        let now = new Date();
+        let minTimeHour = startHour;
+        let minTimeMinutes = 0;
+
+        if (selectedDate === todayDate) {
+            minTimeHour = now.getHours();
+            minTimeMinutes = Math.ceil(now.getMinutes() / stepMinutes) * stepMinutes;
+            if (minTimeMinutes === 60) {
+                minTimeMinutes = 0;
+                minTimeHour++;
+            }
+        }
+
+        for (let hour = startHour; hour <= endHour; hour++) {
+            for (let minutes = 0; minutes < 60; minutes += stepMinutes) {
+                if (selectedDate === todayDate &&
+                    (hour < minTimeHour || (hour === minTimeHour && minutes < minTimeMinutes))) {
+                    continue;
+                }
+                let valueTime = `${String(hour).padStart(2,'0')}:${String(minutes).padStart(2,'0')}`;
+                let displayTime = format12Hour(hour, minutes);
+                timeSelect.innerHTML += `<option value="${valueTime}">${displayTime}</option>`;
+            }
+        }
+    }
+
+    dateInput.addEventListener("change", function () {
+        generateTimeSlots(this.value);
+    });
+
+    dateInput.value = todayDate;
+    generateTimeSlots(todayDate);
+</script>
+{% endblock %}

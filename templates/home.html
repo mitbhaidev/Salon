@@ -1,0 +1,529 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<!-- NAVBAR -->
+
+<!-- HERO SECTION -->
+
+<section class="container mx-auto px-6 min-h-screen flex items-center">
+  <div class="flex flex-col lg:flex-row items-center gap-10 w-full">
+    
+    <!-- LEFT SIDE: Text Content -->
+    <div class="lg:w-1/2 text-center lg:text-left space-y-6 order-2 lg:order-1">
+      <h1 class="text-4xl sm:text-5xl lg:text-7xl font-bold text-gray-800 leading-tight">
+        Welcome to Our Salon
+      </h1>
+      <p class="text-gray-600 text-base sm:text-lg lg:text-xl">
+        Your dream hair is just an appointment away.
+      </p>
+      <div class="flex justify-center lg:justify-start items-center gap-4 flex-wrap">
+        <a
+          href="{% url 'contact' %}"
+          class="px-6 sm:px-10 py-3 rounded-md bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 transition-all duration-300 font-medium text-white shadow-lg"
+        >
+          Contact Us
+        </a>
+        <button class="border border-gray-300 px-4 py-2 bg-gray-50 rounded-lg" id="Fire">🎉</button>
+      </div>
+    </div>
+
+    <!-- RIGHT SIDE: Carousel -->
+    <div class="lg:w-1/2 w-full order-1 lg:order-2">
+      <div class="swiper progress-slide-carousel swiper-container w-full aspect-[4/3] sm:aspect-[16/9] lg:aspect-auto lg:h-[80vh] rounded-3xl overflow-hidden">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide flex justify-center items-center">
+            <img loading="lazy"
+              src="{% static 'images/hero4.webp' %}"
+              class="w-full h-full object-contain lg:object-cover"
+              alt="Hero 1"
+            />
+          </div>
+          <div class="swiper-slide flex justify-center items-center">
+            <img loading="lazy"
+              src="{% static 'images/hero5.webp' %}"
+              class="w-full h-full object-contain lg:object-cover"
+              alt="Hero 2"
+            />
+          </div>
+          <div class="swiper-slide flex justify-center items-center">
+            <img loading="lazy"
+              src="{% static 'images/hero6.webp' %}"
+              class="w-full h-full object-contain lg:object-cover"
+              alt="Hero 3"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+<section class="pb-20" id="service">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Title -->
+    <div class="text-center mb-12">
+      <div class="text-5xl font-bold text-gray-900">Services</div>
+    </div>
+
+    <!-- Services Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      <!-- Service Card -->
+      <div class="p-10 text-center">
+        <img loading="lazy" src="{% static 'images/service2.webp' %}" alt="Waxing"
+             class="w-80 h-80 object-cover rounded-full mx-auto mb-4">
+        <h3 class="text-xl font-semibold text-gray-900 mb-2">Waxing</h3>
+        
+      </div>
+
+      <!-- Service Card -->
+      <div class="p-10 text-center">
+        <img loading="lazy" src="{% static 'images/service4.webp' %}" alt="Makeup"
+             class="w-80 h-80 object-cover rounded-full mx-auto mb-4">
+        <h3 class="text-xl font-semibold text-gray-900 mb-2">Makeup</h3>
+        
+      </div>
+
+      <!-- Service Card -->
+      <div class="p-10 text-center">
+        <img loading="lazy" src="{% static 'images/service3.webp' %}" alt="Haircuts"
+             class="w-80 h-80 object-cover rounded-full mx-auto mb-4">
+        <h3 class="text-xl font-semibold text-gray-900 mb-2">Haircuts</h3>
+        
+      </div>
+
+      <!-- Service Card -->
+      <div class="p-10 text-center">
+        <img loading="lazy" src="{% static 'images/service1.webp' %}" alt="Pedicures"
+             class="w-80 h-80 object-cover rounded-full mx-auto mb-4">
+        <h3 class="text-xl font-semibold text-gray-900 mb-2">Pedicures</h3>
+        
+      </div>
+
+      <!-- Service Card -->
+      <div class="p-10 text-center">
+        <img loading="lazy" src="{% static 'images/service5.webp' %}" alt="Facials"
+             class="w-80 h-80 object-cover rounded-full mx-auto mb-4">
+        <h3 class="text-xl font-semibold text-gray-900 mb-2">Facials</h3>
+      </div>
+
+      <!-- Service Card -->
+      <div class="p-10 text-center">
+        <img loading="lazy" src="{% static 'images/service6.webp' %}" alt="Hair Coloring"
+             class="w-80 h-80 object-cover rounded-full mx-auto mb-4">
+        <h3 class="text-xl font-semibold text-gray-900 mb-2">Hair Coloring</h3>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="container mx-auto px-6 py-10" id="gallery">
+
+  <div class="text-5xl font-bold">Gallery</div>
+
+  
+
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-10">
+    <div class="grid gap-4">
+        <div>
+            <img loading="lazy" class="h-auto max-w-full rounded-lg" src="{% static 'images/gallery13.webp' %}" alt="gallery13">
+        </div>
+        <div>
+            <img loading="lazy" class="h-auto max-w-full rounded-lg" src="{% static 'images/gallery3.webp' %}" alt="gallery10">
+        </div>
+        <div>
+            <img loading="lazy" class="h-auto max-w-full rounded-lg" src="{% static 'images/gallery1.webp' %}" alt="gallery1">
+        </div>
+    </div>
+    <div class="grid gap-4">
+        <div>
+            <img loading="lazy" class="h-auto max-w-full rounded-lg" src="{% static 'images/gallery4.webp' %}" alt="gallery4">
+        </div>
+        <div>
+            <img loading="lazy" class="h-auto max-w-full rounded-lg" src="{% static 'images/gallery12.webp' %}" alt="gallery12">
+        </div>
+        <div>
+            <img loading="lazy" class="h-auto max-w-full rounded-lg" src="{% static 'images/gallery6.webp' %}" alt="gallery6">
+        </div>
+    </div>
+    <div class="grid gap-4">
+        <div>
+            <img loading="lazy" class="h-auto max-w-full rounded-lg" src="{% static 'images/gallery10.webp' %}" alt="gallery10">
+        </div>
+        <div>
+            <img loading="lazy" class="h-auto max-w-full rounded-lg" src="{% static 'images/gallery7.webp' %}" alt="gallery7">
+        </div>
+        <div>
+            <img loading="lazy" class="h-auto max-w-full rounded-lg" src="{% static 'images/gallery9.webp' %}" alt="gallery9">
+        </div>
+    </div>
+    <div class="grid gap-4">
+        <div>
+            <img loading="lazy" class="h-auto max-w-full rounded-lg" src="{% static 'images/gallery8.webp' %}" alt="gallery8">
+        </div>
+        <div>
+            <img loading="lazy" class="h-auto max-w-full rounded-lg" src="{% static 'images/gallery15.webp' %}" alt="gallery15">
+        </div>
+        <div>
+            <img loading="lazy" class="h-auto max-w-full rounded-lg" src="{% static 'images/gallery11.webp' %}" alt="gallery11">
+        </div>
+    </div>
+</div>
+
+
+</section>
+
+<section class="py-10" id="ourteam">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="mb-12 py-8">
+                <div class="font-manrope text-5xl text-center font-bold text-gray-900 ">Our team </div>
+            </div>
+            <div class="grid grid-cols-1 min-[500px]:grid-cols-2 md:grid-cols-6 lg:grid-cols-5 gap-8 max-w-xl mx-auto md:max-w-3xl lg:max-w-full">
+                
+                    <div class="block group md:col-span-2 lg:col-span-1 ">
+                        <div class="relative mb-6">
+                            <img loading="lazy" src="{% static 'images/team1.webp' %}" alt="Antonio image"
+                                class="w-48 h-80 rounded-full mx-auto transition-all duration-500 object-cover border border-solid border-transparent group-hover:border-pink-400" />
+                        </div>
+                        <h4
+                            class="text-xl font-semibold text-gray-900 mb-2 capitalize text-center transition-all duration-500 group-hover:text-pink-500">
+                            Priya Sharma </h4>
+                        <span
+                            class="text-gray-500 text-center block transition-all duration-500 group-hover:text-gray-900">Founder</span>
+                    </div>
+                    <div class="block group md:col-span-2 lg:col-span-1 ">
+                        <div class="relative mb-6">
+                            <img loading="lazy" src="{% static 'images/team2.webp' %}" alt="Patricia image"
+                                class="w-48 h-80 rounded-full mx-auto transition-all duration-500 object-cover border border-solid border-transparent group-hover:border-pink-400" />
+                        </div>
+                        <h4
+                            class="text-xl font-semibold text-gray-900 mb-2 capitalize text-center transition-all duration-500 group-hover:text-pink-500">
+                            Patricia Angely </h4>
+                        <span
+                            class="text-gray-500 text-center block transition-all duration-500 group-hover:text-gray-900">Co-Founder</span>
+                    </div>
+                    <div class="group group md:col-span-2 lg:col-span-1">
+                        <div class="relative mb-6">
+                            <img loading="lazy" src="	{% static 'images/team3.webp' %}" alt="Jerom image"
+                                class="w-48 h-80 rounded-full mx-auto transition-all duration-500 object-cover border border-solid border-transparent group-hover:border-pink-400" />
+                        </div>
+                        <h4
+                            class="text-xl font-semibold text-gray-900 mb-2 capitalize text-center transition-all duration-500 group-hover:text-pink-500">
+                            Rohit Mehta</h4>
+                        <span
+                            class="text-gray-500 text-center block transition-all duration-500 group-hover:text-gray-900">Facial & Skin Care Expert</span>
+                    </div>
+                    <div class="block group md:col-span-2 lg:col-span-1 md:col-start-2 lg:col-start-4">
+                        <div class="relative mb-6">
+                            <img loading="lazy" src="	{% static 'images/team4.webp' %}" alt="Yasmine image"
+                                class="w-48 h-80 rounded-full mx-auto transition-all duration-500 object-cover border border-solid border-transparent group-hover:border-pink-400" />
+                        </div>
+                        <h4
+                            class="text-xl font-semibold text-gray-900 mb-2 capitalize text-center transition-all duration-500 group-hover:text-pink-500">
+                           Sneha Iyer</h4>
+                        <span
+                            class="text-gray-500 text-center block transition-all duration-500 group-hover:text-gray-900">Nail & Pedicure Artist</span>
+                    </div>
+                    <div class="block group min-[500px]:col-span-2 mx-auto md:col-span-2 lg:col-span-1 ">
+                        <div class="relative mb-6">
+                            <img loading="lazy" src="{% static 'images/team5.webp' %}" alt="Martin image"
+                                class="w-48 h-80 rounded-full mx-auto transition-all duration-500 object-cover border border-solid border-transparent group-hover:border-pink-400" />
+                        </div>
+                        <h4
+                            class="text-xl font-semibold text-gray-900 mb-2 capitalize text-center transition-all duration-500 group-hover:text-pink-500">
+                            Aditi Verma</h4>
+                        <span
+                            class="text-gray-500 text-center block transition-all duration-500 group-hover:text-gray-900"> Bridal Makeup Specialist</span>
+                    </div>
+               
+            </div>
+        </div>
+        </div>
+</section>
+
+<section class="py-16" id="reviews">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="mb-16 ">
+                <div class="text-4xl text-center font-bold text-gray-900 ">What our happy user says!</div>
+            </div>
+            <!--Slider wrapper-->
+
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper w-max">
+                    <div class="swiper-slide">
+                        <div
+                            class="group bg-white border border-solid border-gray-300 rounded-xl p-6 transition-all duration-500  w-full mx-auto hover:border-pink-600 hover:shadow-sm slide_active:border-pink-600">
+                            <div class="">
+                                <div class="flex items-center mb-7 gap-2 text-amber-500 transition-all duration-500  ">
+                                    <svg class="w-5 h-5" viewBox="0 0 18 17" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M8.10326 1.31699C8.47008 0.57374 9.52992 0.57374 9.89674 1.31699L11.7063 4.98347C11.8519 5.27862 12.1335 5.48319 12.4592 5.53051L16.5054 6.11846C17.3256 6.23765 17.6531 7.24562 17.0596 7.82416L14.1318 10.6781C13.8961 10.9079 13.7885 11.2389 13.8442 11.5632L14.5353 15.5931C14.6754 16.41 13.818 17.033 13.0844 16.6473L9.46534 14.7446C9.17402 14.5915 8.82598 14.5915 8.53466 14.7446L4.91562 16.6473C4.18199 17.033 3.32456 16.41 3.46467 15.5931L4.15585 11.5632C4.21148 11.2389 4.10393 10.9079 3.86825 10.6781L0.940384 7.82416C0.346867 7.24562 0.674378 6.23765 1.4946 6.11846L5.54081 5.53051C5.86652 5.48319 6.14808 5.27862 6.29374 4.98347L8.10326 1.31699Z"
+                                            fill="currentColor" />
+                                    </svg>
+                                    <span class="text-base font-semibold text-pink-500">4.9</span>
+                                </div>
+                                <p
+                                    class="text-base text-gray-600 leading-6  transition-all duration-500 pb-8 group-hover:text-gray-800 slide_active:text-gray-800">
+                                    Pagedone has made it possible for me to stay on top of my portfolio and make
+                                    informed
+                                    decisions
+                                    quickly and easily.
+                                </p>
+                            </div>
+                            <div class="flex items-center gap-5 border-t border-solid border-gray-200 pt-5">
+                                <img loading="lazy" class="rounded-full h-10 w-10 object-cover" src="https://pagedone.io/asset/uploads/1696229969.png"
+                                    alt="avatar" />
+                                <div class="block">
+                                    <h5 class="text-gray-900 font-medium transition-all duration-500  mb-1">Jane D</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div
+                            class="group bg-white border border-solid border-gray-300 flex justify-between flex-col rounded-xl p-6 transition-all duration-500  w-full mx-auto hover:border-pink-600 slide_active:border-pink-600 hover:shadow-sm">
+                            <div class="">
+                                <div class="flex items-center mb-7 gap-2 text-amber-500 transition-all duration-500  ">
+                                    <svg class="w-5 h-5" viewBox="0 0 18 17" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M8.10326 1.31699C8.47008 0.57374 9.52992 0.57374 9.89674 1.31699L11.7063 4.98347C11.8519 5.27862 12.1335 5.48319 12.4592 5.53051L16.5054 6.11846C17.3256 6.23765 17.6531 7.24562 17.0596 7.82416L14.1318 10.6781C13.8961 10.9079 13.7885 11.2389 13.8442 11.5632L14.5353 15.5931C14.6754 16.41 13.818 17.033 13.0844 16.6473L9.46534 14.7446C9.17402 14.5915 8.82598 14.5915 8.53466 14.7446L4.91562 16.6473C4.18199 17.033 3.32456 16.41 3.46467 15.5931L4.15585 11.5632C4.21148 11.2389 4.10393 10.9079 3.86825 10.6781L0.940384 7.82416C0.346867 7.24562 0.674378 6.23765 1.4946 6.11846L5.54081 5.53051C5.86652 5.48319 6.14808 5.27862 6.29374 4.98347L8.10326 1.31699Z"
+                                            fill="currentColor" />
+                                    </svg>
+                                    <span class="text-base font-semibold text-pink-500">4.9</span>
+                                </div>
+                                <p
+                                    class="text-base text-gray-600 leading-6  transition-all duration-500 pb-8 group-hover:text-gray-800 slide_active:text-gray-800">
+                                    Thanks to pagedone, I feel more informed and confident about my investment decisions
+                                    than
+                                    ever
+                                    before.
+                                </p>
+                            </div>
+                            <div class="flex items-center gap-5 pt-5 border-t border-solid border-gray-200">
+                                <img loading="lazy" class="rounded-full h-10 w-10 object-cover" src="https://pagedone.io/asset/uploads/1696229994.png"
+                                    alt="avatar" />
+                                <div class="block">
+                                    <h5 class="text-gray-900 font-medium transition-all duration-500  mb-1">Harsh P.
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div
+                            class=" flex justify-between flex-col lg:w-full group bg-white border border-solid border-gray-300 rounded-xl p-6 transition-all duration-500  w-full mx-auto slide_active:border-pink-600 hover:border-pink-600 hover:shadow-sm">
+                            <div class="">
+                                <div class="flex items-center mb-7 gap-2 text-amber-500 transition-all duration-500  ">
+                                    <svg class="w-5 h-5" viewBox="0 0 18 17" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M8.10326 1.31699C8.47008 0.57374 9.52992 0.57374 9.89674 1.31699L11.7063 4.98347C11.8519 5.27862 12.1335 5.48319 12.4592 5.53051L16.5054 6.11846C17.3256 6.23765 17.6531 7.24562 17.0596 7.82416L14.1318 10.6781C13.8961 10.9079 13.7885 11.2389 13.8442 11.5632L14.5353 15.5931C14.6754 16.41 13.818 17.033 13.0844 16.6473L9.46534 14.7446C9.17402 14.5915 8.82598 14.5915 8.53466 14.7446L4.91562 16.6473C4.18199 17.033 3.32456 16.41 3.46467 15.5931L4.15585 11.5632C4.21148 11.2389 4.10393 10.9079 3.86825 10.6781L0.940384 7.82416C0.346867 7.24562 0.674378 6.23765 1.4946 6.11846L5.54081 5.53051C5.86652 5.48319 6.14808 5.27862 6.29374 4.98347L8.10326 1.31699Z"
+                                            fill="currentColor" />
+                                    </svg>
+                                    <span class="text-base font-semibold text-pink-500">4.9</span>
+                                </div>
+                                <p
+                                    class="text-base text-gray-600 leading-6  transition-all duration-500  pb-8 group-hover:text-gray-800 slide_active:text-gray-800">
+                                    The customer service team at pagedone went above and beyond to help me resolve a
+                                    billing
+                                    issue.
+                                </p>
+                            </div>
+                            <div class="flex items-center gap-5 border-t border-solid border-gray-200 pt-5">
+                                <img loading="lazy" class="rounded-full h-10 w-10 object-cover" src="	https://pagedone.io/asset/uploads/1696230027.png"
+                                    alt="avatar" />
+                                <div class="block">
+                                    <h5 class="text-gray-900 font-medium transition-all duration-500  mb-1">Alex K.</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div
+                            class="group bg-white border border-solid border-gray-300 rounded-xl p-6 transition-all duration-500  w-full mx-auto slide_active:border-pink-600 hover:border-pink-600 hover:shadow-sm">
+                            <div class="">
+                                <div class="flex items-center mb-7 gap-2 text-amber-500 transition-all duration-500  ">
+                                    <svg class="w-5 h-5" viewBox="0 0 18 17" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M8.10326 1.31699C8.47008 0.57374 9.52992 0.57374 9.89674 1.31699L11.7063 4.98347C11.8519 5.27862 12.1335 5.48319 12.4592 5.53051L16.5054 6.11846C17.3256 6.23765 17.6531 7.24562 17.0596 7.82416L14.1318 10.6781C13.8961 10.9079 13.7885 11.2389 13.8442 11.5632L14.5353 15.5931C14.6754 16.41 13.818 17.033 13.0844 16.6473L9.46534 14.7446C9.17402 14.5915 8.82598 14.5915 8.53466 14.7446L4.91562 16.6473C4.18199 17.033 3.32456 16.41 3.46467 15.5931L4.15585 11.5632C4.21148 11.2389 4.10393 10.9079 3.86825 10.6781L0.940384 7.82416C0.346867 7.24562 0.674378 6.23765 1.4946 6.11846L5.54081 5.53051C5.86652 5.48319 6.14808 5.27862 6.29374 4.98347L8.10326 1.31699Z"
+                                            fill="currentColor" />
+                                    </svg>
+                                    <span class="text-base font-semibold text-pink-500">4.9</span>
+                                </div>
+                                <p
+                                    class="text-base text-gray-600 leading-6  transition-all duration-500 pb-8 group-hover:text-gray-800 slide_active:text-gray-800">
+                                    Pagedone has made it possible for me to stay on top of my portfolio and make
+                                    informed
+                                    decisions
+                                    quickly and easily.
+                                </p>
+                            </div>
+                            <div class="flex items-center gap-5 border-t border-solid border-gray-200 pt-5">
+                                <img loading="lazy" class="rounded-full h-10 w-10 object-cover" src="https://pagedone.io/asset/uploads/1696229969.png"
+                                    alt="avatar" />
+                                <div class="block">
+                                    <h5 class="text-gray-900 font-medium transition-all duration-500  mb-1">Jane D</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div
+                            class="group bg-white border border-solid border-gray-300 flex justify-between flex-col rounded-xl p-6 transition-all duration-500  w-full mx-auto slide_active:border-pink-600 hover:border-pink-600 hover:shadow-sm ">
+                            <div class="">
+                                <div class="flex items-center mb-7 gap-2 text-amber-500 transition-all duration-500  ">
+                                    <svg class="w-5 h-5" viewBox="0 0 18 17" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M8.10326 1.31699C8.47008 0.57374 9.52992 0.57374 9.89674 1.31699L11.7063 4.98347C11.8519 5.27862 12.1335 5.48319 12.4592 5.53051L16.5054 6.11846C17.3256 6.23765 17.6531 7.24562 17.0596 7.82416L14.1318 10.6781C13.8961 10.9079 13.7885 11.2389 13.8442 11.5632L14.5353 15.5931C14.6754 16.41 13.818 17.033 13.0844 16.6473L9.46534 14.7446C9.17402 14.5915 8.82598 14.5915 8.53466 14.7446L4.91562 16.6473C4.18199 17.033 3.32456 16.41 3.46467 15.5931L4.15585 11.5632C4.21148 11.2389 4.10393 10.9079 3.86825 10.6781L0.940384 7.82416C0.346867 7.24562 0.674378 6.23765 1.4946 6.11846L5.54081 5.53051C5.86652 5.48319 6.14808 5.27862 6.29374 4.98347L8.10326 1.31699Z"
+                                            fill="currentColor" />
+                                    </svg>
+                                    <span class="text-base font-semibold text-pink-500">4.9</span>
+                                </div>
+                                <p
+                                    class="text-base text-gray-600 leading-6  transition-all duration-500 pb-8 group-hover:text-gray-800 slide_active:text-gray-800">
+                                    Thanks to pagedone, I feel more informed and confident about my investment decisions
+                                    than
+                                    ever
+                                    before.
+                                </p>
+                            </div>
+                            <div class="flex items-center gap-5 pt-5 border-t border-solid border-gray-200">
+                                <img loading="lazy" class="rounded-full h-10 w-10 object-cover" src="https://pagedone.io/asset/uploads/1696229994.png"
+                                    alt="avatar" />
+                                <div class="block">
+                                    <h5 class="text-gray-900 font-medium transition-all duration-500  mb-1">Harsh P.
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+
+<section class="py-20 px-6" id="appointment">
+  <div class="max-w-3xl mx-auto text-center">
+    
+    <!-- Small Label -->
+    <p class="text-indigo-400 font-medium mb-4">Get started</p>
+    
+    <!-- Main Heading -->
+    <div class="text-4xl sm:text-7xl font-extrabold leading-tight">
+      Express your style
+    </div>
+    
+    <!-- Description -->
+    <p class="text-gray-400 mt-4 text-lg">
+      Look and feel your best with our professional salon treatments
+    </p>
+    
+    <!-- Button -->
+    <div class="mt-8">
+      <a href="{% url 'book_appointment' %}"
+        class="px-6 py-3 rounded-md bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-purple-600 hover:to-pink-400 transition-all duration-300 font-medium text-white shadow-lg">
+        Book Appointment
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+<script>
+    var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 1,
+        spaceBetween: 32,
+        loop: true,
+        centeredSlides: true,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+
+        },
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+        },
+        breakpoints: {
+        640: {
+          slidesPerView: 1,
+          spaceBetween: 32,
+        },
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 32,
+        },
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 32,
+        },
+      },
+    });
+
+
+
+      var count = 500;
+    var defaults = {
+        origin: { y: 0.5, x: 0.5 },
+    };
+
+    document.getElementById("Fire").onclick = FireCannon;
+
+    function Fire(particleRatio, opts) {
+        confetti(Object.assign({}, defaults, opts, {
+            particleCount: Math.floor(count * particleRatio)
+        }));
+    }
+
+    function FireCannon() {
+
+        Fire(0.25, {
+            spread: 26,
+            startVelocity: 55,
+        });
+        Fire(0.2, {
+            spread: 60,
+        });
+        Fire(0.35, {
+            spread: 100,
+            decay: 0.91,
+            scalar: 0.4
+        });
+        Fire(0.1, {
+            spread: 120,
+            startVelocity: 25,
+            decay: 0.92,
+            scalar: 1.2
+        });
+        Fire(0.1, {
+            spread: 120,
+            startVelocity: 45,
+        });
+    }
+
+</script>
+                                            
+
+                                            
+
+
+
+
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+       Contact | salon
+{% endblock %}
+
+
+{% block content %}
+<div class="min-h-screen bg-gray-50 flex items-center justify-center py-20 md:py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl w-full bg-white shadow-lg rounded-xl overflow-hidden flex flex-col md:flex-row">
+
+        <!-- Left Side: Form -->
+        <div class="md:w-1/2 p-8 lg:p-12">
+            <h1 class="text-3xl font-bold text-gray-800 mb-6 text-center md:text-left">Contact Us</h1>
+
+            {% if success %}
+            <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6" role="alert">
+                Your message has been sent successfully!
+            </div>
+            {% endif %}
+
+            {% if error %}
+            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6" role="alert">
+                {{ error }}
+            </div>
+            {% endif %}
+
+            <form method="post" class="space-y-5">
+                {% csrf_token %}
+                
+                <div>
+                    <label for="id_name" class="block text-sm font-medium text-gray-700">Name</label>
+                    <input type="text" name="name" id="id_name" placeholder="Your Name"
+                           class="mt-1 w-full border-2 border-gray-200 rounded-lg sm:text-sm px-3 py-2" required>
+                </div>
+
+                <div>
+                    <label for="id_email" class="block text-sm font-medium text-gray-700">Email</label>
+                    <input type="email" name="email" id="id_email" placeholder="your@email.com"
+                           class="mt-1 w-full border-2 border-gray-200 rounded-lg sm:text-sm px-3 py-2" required>
+                </div>
+
+                <div>
+                    <label for="id_phone" class="block text-sm font-medium text-gray-700">Phone</label>
+                    <input type="tel" name="phone" id="id_phone" placeholder="+91 98765 43210"
+                           pattern="[0-9]{10,15}" maxlength="15" minlength="10" oninput="this.value=this.value.replace(/[^0-9]/g,'')"
+                           class="mt-1 w-full border-2 border-gray-200 rounded-lg sm:text-sm px-3 py-2">
+                </div>
+
+                <div>
+                    <label for="id_message" class="block text-sm font-medium text-gray-700">Message</label>
+                    <textarea name="message" id="id_message" rows="4" placeholder="Type your message here..."
+                              class="mt-1 w-full border-2 border-gray-200 rounded-lg sm:text-sm px-3 py-2" required></textarea>
+                </div>
+
+                <button type="submit"
+                        class="w-full bg-blue-600 text-white py-3 px-4 rounded-lg shadow hover:bg-blue-700 transition font-semibold text-lg">
+                    Send Message
+                </button>
+            </form>
+        </div>
+
+        <!-- Right Side: Image -->
+        <div class="md:w-1/2 hidden md:block">
+            <img src="{% static 'images/contact.webp' %}" alt="Contact Image" class="w-full h-full object-cover">
+        </div>
+    </div>
+</div>
+{% endblock %}

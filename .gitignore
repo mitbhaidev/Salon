@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+
+*.pyo
+*.pyd
+*.env
+*.venv
+env/
+venv/
+ENV/
+env.bak/
+*.log
+
+# VS Code / IDE
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Django
+*.pot
+*.pyc
+
+/media/
+
+# Migrations
+**/migrations/*.py
+**/migrations/*.pyc
+**/migrations/__pycache__/
+
+# Tailwind / Node
+node_modules/
+
+
+# Docker
+*.pid
+*.tar
+
+
+
+# Environment Variables
+.env
+.env.*
+
